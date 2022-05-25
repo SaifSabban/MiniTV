@@ -53,5 +53,5 @@ dtoverlay=audremap,enable_jack,pins_18_19
 
 ## Software Setup
 1. Power on the pi by connecting it to the conputer's USB
-2. Launch putty, Command line or terminal and type: '''ssh pi@raspberrypi.local''' <br/>If that dosen't work you'll have to figure out the Pi's IP and use '''ssh pi@[IP ADDRESS]''' or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309)
+2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309)
 3. 
