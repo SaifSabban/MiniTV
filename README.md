@@ -47,5 +47,5 @@ dtoverlay=dwc2
 dtparam=audio=on
 dtoverlay=audremap,enable_jack,pins_18_19
 ```
-12. Open the file "config.txt" using any text editor and place the following after "rootwait": ```modules-load=dwc2,g_ether```
+12. Open the file "config.txt" using any text editor and place the following after "rootwait": <br/>```modules-load=dwc2,g_ether```
 13. Create a file with the name "ssh" and wiothout any file extention
