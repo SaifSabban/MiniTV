@@ -127,4 +127,8 @@ WantedBy=multi-user.target
 32. Shutdown the Pi with ```sudo shutdown -h now``` and build the rest of the TV. 
 
 ## TV Physical Build
+### Screen Circuit
+### Screen Button Circuit
 ### Audio Circuit
+### Power Circuit
+### Battery Circuit
