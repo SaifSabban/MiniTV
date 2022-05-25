@@ -51,7 +51,7 @@ dtoverlay=audremap,enable_jack,pins_18_19
 13. Create a file with the name "ssh" and without any file extension.
 14. Save and Close any open files.
 
-## Pi Software Stuff
+# TV Software Build
 ### Software Setup
 1. Power on the pi by connecting it to the conputer's USB.
 2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS]``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309).
@@ -124,3 +124,7 @@ Restart=always
 WantedBy=multi-user.target
 ```
 31. Finally, type in ```sudo systemctl enable tvbutton.service``` then ```sudo systemctl enable tvplayer.service``` to have the two begin at start up.
+32. Shutdown the Pi with ```sudo shutdown -h now``` and build the rest of the TV. 
+
+# TV Physical Build
+### Audio Circuit
