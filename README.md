@@ -47,28 +47,79 @@ dtoverlay=dwc2
 dtparam=audio=on
 dtoverlay=audremap,enable_jack,pins_18_19
 ```
-12. Open the file "config.txt" using any text editor and place the following after "rootwait": <br/>```modules-load=dwc2,g_ether```
+12. Open the file "config.txt" using any text editor and place the following after "rootwait": <br/>```modules-load=dwc2,g_ether```.
 13. Create a file with the name "ssh" and without any file extension.
 14. Save and Close any open files.
 
 ## Software Setup
 1. Power on the pi by connecting it to the conputer's USB.
-2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS]``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309)
+2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS]``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309).
 3. Enter the password, ```type sudo raspi-config``` and change the default password.
 4. Update the Pi with ```sudo apt-get update```.
 5. Upgrade the Pi with ```sudo apt-get upgrade```.
+
+# USB Mount 
 6. If you want to copy the videos via the USB method then type ```sudo apt-get install usbmount``` otherwise skip to step 9.
-7. We will now edit a file using the ```sudo nano /lib/systemd/system/systemd-udevd.service``` command. 
-8. Scroll down using the Down arrow key, and find the code "PrivateMounts=yes" and change that ***"yes"*** to a ***"no"***, then exit using **CTRL+X** and the pressing **Y**
-9. we will now remove the splash screen by first typing ```sudo nano /boot/cmdline.txt```
-10. Find "console=tty3" & change it to "console=tty1"
-11. find "fsck.repair=yes" and remove it
+7. We will now edit a file using the ```sudo nano /lib/systemd/system/systemd-udevd.service``` command.
+8. Scroll down using the Down arrow key, and find the code "PrivateMounts=yes" and change that ***"yes"*** to a ***"no"***, then exit using **CTRL+X** and the pressing **Y**.
+
+# Splash Screen Remove
+9. we will now remove the splash screen by first typing ```sudo nano /boot/cmdline.txt```.
+10. Find "console=tty3" & change it to "console=tty1".
+11. find "fsck.repair=yes" and remove it.
 12. Add ```consoleblank=0 logo.nologo quiet splash``` to the very end of the line.
+
+# Omxplayer
 13. Next we will be installing omxplayer, but before that we need to install git using ```sudo apt-get install git```.
-14. Since Omxplayer cannton be installed with apt-get anymore, we will be using a legacy version. start by going into the main directory using ```cd ~```
-15. Download the archived omxplayer debian file with ```wget http://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_20190723+gitf543a0d-1_armhf.deb```
-16. Install the .deb file with ```sudo dpkg -i omxplayer_20190723+gitf543a0d-1_armhf.deb```
-17. Then install the dependancies ```sudo apt-get -f install```
-18. Lastly delete the omxplayer .deb file with ```rm omxplayer_20190723+gitf543a0d-1_armhf.deb```
-19. Test if omxplayer is properly installed with ```omxplayer```, to get out of omxplayer type **CTRL+C**
-20. 
+14. Since Omxplayer cannton be installed with apt-get anymore, we will be using a legacy version. start by going into the main directory using ```cd ~```.
+15. Download the archived omxplayer debian file with ```wget http://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_20190723+gitf543a0d-1_armhf.deb```.
+16. Install the .deb file with ```sudo dpkg -i omxplayer_20190723+gitf543a0d-1_armhf.deb```.
+17. Then install the dependancies ```sudo apt-get -f install```.
+18. Lastly delete the omxplayer .deb file with ```rm omxplayer_20190723+gitf543a0d-1_armhf.deb```.
+19. Test if omxplayer is properly installed with ```omxplayer```, to get out of omxplayer type **CTRL+C**.
+
+# Clone Repository
+20. To the github repository to the Pi use ```git clone https://github.com/SaifSabban/MiniTV```.
+
+# Moving Videos (USB Method)
+21. go to the videos directory ```cd ~/MiniTv/videos```.
+22. Plug in the USB and type on the command line ```sudo cp -R /media/usb/encoded/. ~/MiniTv/videos```.
+
+# Moving Videos (SSH Method)
+23. Move the video files to a folder called "videos".
+24. On you computer's command terminal type in ```scp -r C:/Users/[DIRECTORY]}/videos pi@raspberrypi.local:/home/pi/MiniTv```<br/> replacing **[DIRECTORY]** with your actual directory.
+25. You will be asked to if you want to save the device's hash, type "YES".
+26. Enter your Pi's password. and wait for the transfer to finish.
+
+# Setting Startup Sequinnce
+27. Create and edit the start up file for the buttons program by first typing<br/>```sudo touch /etc/systemd/system/tvbutton.service```<br/>then<br/>```sudo nano /etc/systemd/system/tvbutton.service```.
+28. Copy and paste the following into the editor:
+```
+[Unit]
+Description=tvbutton
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/MiniTv/
+ExecStart=/usr/bin/python /home/pi/MiniTv/buttons.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+29. Create and edit the start up file for the buttons program by first typing<br/>```sudo touch /etc/systemd/system/tvplayer.service```<br/>then<br/>```sudo nano /etc/systemd/system/tvplayer.service```.
+30. Copy and paste the following into the editor:
+```
+[Unit]
+Description=tvplayer
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/MiniTv/
+ExecStart=/usr/bin/python /home/pi/MiniTv/player.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+31. Finally, type in ```sudo systemctl enable tvbutton.service``` then ```sudo systemctl enable tvplayer.service``` to have the two begin at start up.
