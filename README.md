@@ -26,5 +26,16 @@ A simple way of doing this first installing [FFMPEG](https://github.com/adaptlea
 3. Select you SD Card From "Storage" button
 4. From "Operating System" button navigate through "Raspberry Pi OS (Other)" and select "Raspberry Pi OS Lite (Legacy)"
 5. A cog wheel now apears in the bottom right click on it and set the hostname to "raspberrypi", enable ssh and set the username as "pi" & the password as "raspberry"<br/><p align="center"><img src="/Extra/AdvancedOptions.png" alt="drawing" width="250"/><p>
-6. If you're using a pi Zero then enale "Configure Wireless LAN" and add your wifi's ssid and password.
-7. 
+6. If you're using a Pi Zero W then enable "Configure Wireless LAN" and add your Wifi's ssid and password.
+7. IMPORTANT: Double Check To Make sure you select the SD card. If you accidentally select, an external hard drive that is plugged into your computer, the next step will erase that hard drive. Once checked click on ‘Write’.
+8. After the image is written to the SD card remount (Eject and re-insert) it to your computer.
+9. Open the mounded device named "boot"
+10. Check if there is a file called "wpa_supplicant.conf" if not then make a file with that name and insert the following code (Replacing ssid and password with your wifi SSID and password):
+'country=US''
+'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev'
+'update_config=1'
+''
+'network={'
+'    ssid="NETWORK NAME"'
+'    psk="NETWORK PASSWORD"'
+'}'
