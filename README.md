@@ -30,7 +30,7 @@ A simple way of doing this first installing [FFMPEG](https://github.com/adaptlea
 7. IMPORTANT: Double Check To Make sure you select the SD card. If you accidentally select, an external hard drive that is plugged into your computer, the next step will erase that hard drive. Once checked click on ‘Write’.
 8. After the image is written to the SD card remount (Eject and re-insert) it to your computer.
 9. Open the mounded device named "boot"
-10. Check if there is a file called "wpa_supplicant.conf" if not then make a file with that name and insert the following code (Replacing ssid and password with your wifi SSID and password):
+10. If you're using a pi Zerro W, check if there is a file called "wpa_supplicant.conf" if not then make a file with that name and insert the following code (Replacing ssid and password with your wifi SSID and password):
     ```
     country=US
     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -41,3 +41,6 @@ A simple way of doing this first installing [FFMPEG](https://github.com/adaptlea
         psk="NETWORK PASSWORD"
     }
     ```
+11. Open the file "config.txt" using any text editor other that notepad and place at the bottom: 'dtoverlay=dwc2'
+12. Open the file "config.txt" using any tet editor and place the following after rootwait": 'modules-load=dwc2,g_ether'
+13. Creat a file with the name "ssh" and wiothout any file extention
