@@ -12,9 +12,9 @@ A miniature TV based on the work of [Brandon Withrow](https://withrow.io/simpson
 * [Micro Push Button Switch](https://www.amazon.co.uk/gp/product/B00R1LI06W)
 * Composite Screen [Use sudo mod wiki to figure which one you want to get and how to mod them to use 5V](https://www.sudomod.com/wiki/index.php/GBZ_Screen)
 * [Toggle Switch](https://www.amazon.co.uk/dp/B07RR7J2K6)
-* [Powerboost 500 Basic](https://www.adafruit.com/product/1903)
-* [LiPo Battery 2200mAh](https://www.adafruit.com/product/1781)
-* [3D Printed Parts](/3Dfiles/)
+* (Optional)[Powerboost 500 Basic](https://www.adafruit.com/product/1903)
+* (Optional)[LiPo Battery 2200mAh](https://www.adafruit.com/product/1781)
+* (Optional)[3D Printed Parts](/3Dfiles/)
 
 ## Prerequisite Videos encoding
 Your videos must be encoded into the H264 format with a height of 480 pixel. this should not be done on the Pi for it would take a long time to get it done. 
@@ -51,7 +51,7 @@ dtoverlay=audremap,enable_jack,pins_18_19
 13. Create a file with the name "ssh" and without any file extension.
 14. Save and Close any open files.
 
-# TV Software Build
+## TV Software Build
 ### Software Setup
 1. Power on the pi by connecting it to the conputer's USB.
 2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS]``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309).
@@ -126,5 +126,5 @@ WantedBy=multi-user.target
 31. Finally, type in ```sudo systemctl enable tvbutton.service``` then ```sudo systemctl enable tvplayer.service``` to have the two begin at start up.
 32. Shutdown the Pi with ```sudo shutdown -h now``` and build the rest of the TV. 
 
-# TV Physical Build
+## TV Physical Build
 ### Audio Circuit
