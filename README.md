@@ -2,7 +2,7 @@
 A miniature TV based on the work of [Brandon Withrow](https://withrow.io/simpsons-tv-build-guide).
 
 <p align="center">
-<a href="https://www.youtube.com/watch?v=_eGjIswi3MQ" target="_blank"><img src="/Extra/Face.png" 
+<a href="https://www.youtube.com/watch?v=_eGjIswi3MQ" target="_blank"><img src="/Extra/VideoImage.png" 
 alt="IMAGE ALT TEXT HERE" width="960" border="1" /></a>
 <p>
 
