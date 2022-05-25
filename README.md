@@ -1,7 +1,7 @@
 # MiniTV
-A miniture TV based on the work of [Brandon Withrow](https://withrow.io/simpsons-tv-build-guide)
+A miniature TV based on the work of [Brandon Withrow](https://withrow.io/simpsons-tv-build-guide)
 
-## Prerequeset Parts
+## Prerequisite Parts
 * [Pi Zero](https://www.adafruit.com/product/2885) or [Pi Zero W](https://www.adafruit.com/product/3400)
 * [Adafruit Mono 2.5 W Audio Amplifier](https://www.adafruit.com/product/2130)
 * [1.5' 4ohm 3W Audio Speaker](https://www.adafruit.com/product/3968)
@@ -16,21 +16,21 @@ A miniture TV based on the work of [Brandon Withrow](https://withrow.io/simpsons
 * [LiPo Battery 2200mAh](https://www.adafruit.com/product/1781)
 * [3D Printed Parts](/3Dfiles/)
 
-## Prerequeset Videos encoding
+## Prerequisite Videos encoding
 Your videos must be encoded into the H264 format with a height of 480 pixel. this should not be done on the Pi for it would take a long time to get it done. 
-A simple way of doing this first installing [FFMPEG](https://github.com/adaptlearning/adapt_authoring/wiki/Installing-FFmpeg) then copying the script [encode.py](/Code/videos/encode.py), collect all your videos in the same folder as the [encode.py](/Code/videos/encode.py) script, and running the python program. The script will loop through all of the video and encode them one by one, & the videos will be placed in a new sub folder called ‘encoded’. If you want to copy your videos via USB you should move the encoded folder into a thumb drive. 
+A simple way of doing this first installing [FFMPEG](https://github.com/adaptlearning/adapt_authoring/wiki/Installing-FFmpeg) then copying the script [encode.py](/Code/videos/encode.py), collect all your videos in the same folder as the [encode.py](/Code/videos/encode.py) script, and running the python program. The script will loop through all of the video and encode them one by one, & the videos will be placed in a new sub folder called ‘encoded’. If you want to copy your videos via USB, you should move the encoded folder into a thumb drive. 
 
-## Getting Pi SD Ready
+## Prepping SD Ready
 1. Install the [Raspberry Pi Imager](https://www.raspberrypi.org/software/)
 2. Insert SD Card
 3. Select you SD Card From "Storage" button
 4. From "Operating System" button navigate through "Raspberry Pi OS (Other)" and select "Raspberry Pi OS Lite (Legacy)"
-5. A cog wheel now apears in the bottom right click on it and set the hostname to "raspberrypi", enable ssh and set the username as "pi" & the password as "raspberry"<br/><p align="center"><img src="/Extra/AdvancedOptions.png" alt="drawing" width="250"/><p>
+5. A cog wheel now appears in the bottom right click on it and set the hostname to "raspberrypi", enable ssh and set the username as "pi" & the password as "raspberry"<br/><p align="center"><img src="/Extra/AdvancedOptions.png" alt="drawing" width="250"/><p>
 6. If you're using a Pi Zero W then enable "Configure Wireless LAN" and add your Wifi's ssid and password.
-7. IMPORTANT: Double Check To Make sure you select the SD card. If you accidentally select, an external hard drive that is plugged into your computer, the next step will erase that hard drive. Once checked click on ‘Write’.
+7. __IMPORTANT: Double Check to Make Sure You Select The SD card.__ If you accidentally select, an external hard drive that is plugged into your computer, the next step will erase that hard drive. Once checked click on ‘Write’.
 8. After the image is written to the SD card remount (Eject and re-insert) it to your computer.
 9. Open the mounded device named "boot"
-10. If you're using a pi Zerro W, check if there is a file called "wpa_supplicant.conf" if not then make a file with that name and insert the following code (Replacing ssid and password with your wifi SSID and password):
+10. If you're using a pi Zero W, check if there is a file called "wpa_supplicant.conf" if not then make a file with that name and insert the following code (Replacing ssid and password with your wifi SSID and password):
     ```
     country=US
     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -48,4 +48,7 @@ dtparam=audio=on
 dtoverlay=audremap,enable_jack,pins_18_19
 ```
 12. Open the file "config.txt" using any text editor and place the following after "rootwait": <br/>```modules-load=dwc2,g_ether```
-13. Create a file with the name "ssh" and wiothout any file extention
+13. Create a file with the name "ssh" and without any file extension
+14. Save and Close any open files
+
+## Software Setup
