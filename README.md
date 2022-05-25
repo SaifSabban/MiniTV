@@ -1,5 +1,5 @@
 # MiniTV
-A miniature TV based on the work of [Brandon Withrow](https://withrow.io/simpsons-tv-build-guide)
+A miniature TV based on the work of [Brandon Withrow](https://withrow.io/simpsons-tv-build-guide).
 
 ## Prerequisite Parts
 * [Pi Zero](https://www.adafruit.com/product/2885) or [Pi Zero W](https://www.adafruit.com/product/3400)
@@ -21,15 +21,15 @@ Your videos must be encoded into the H264 format with a height of 480 pixel. thi
 A simple way of doing this first installing [FFMPEG](https://github.com/adaptlearning/adapt_authoring/wiki/Installing-FFmpeg) then copying the script [encode.py](/Code/videos/encode.py), collect all your videos in the same folder as the [encode.py](/Code/videos/encode.py) script, and running the python program. The script will loop through all of the video and encode them one by one, & the videos will be placed in a new sub folder called ‘encoded’. If you want to copy your videos via USB, you should move the encoded folder into a thumb drive. 
 
 ## Prepping SD Ready
-1. Install the [Raspberry Pi Imager](https://www.raspberrypi.org/software/)
-2. Insert SD Card
-3. Select you SD Card From "Storage" button
-4. From "Operating System" button navigate through "Raspberry Pi OS (Other)" and select "Raspberry Pi OS Lite (Legacy)"
-5. A cog wheel now appears in the bottom right click on it and set the hostname to "raspberrypi", enable ssh and set the username as "pi" & the password as "raspberry"<br/><p align="center"><img src="/Extra/AdvancedOptions.png" alt="drawing" width="250"/><p>
+1. Install the [Raspberry Pi Imager](https://www.raspberrypi.org/software/).
+2. Insert SD Card.
+3. Select you SD Card From "Storage" button.
+4. From "Operating System" button navigate through "Raspberry Pi OS (Other)" and select "Raspberry Pi OS Lite (Legacy)".
+5. A cog wheel now appears in the bottom right click on it and set the hostname to "raspberrypi", enable ssh and set the username as "pi" & the password as "raspberry".<br/><p align="center"><img src="/Extra/AdvancedOptions.png" alt="drawing" width="250"/><p>
 6. If you're using a Pi Zero W then enable "Configure Wireless LAN" and add your Wifi's ssid and password.
 7. __IMPORTANT: Double Check to Make Sure You Select The SD card.__ If you accidentally select, an external hard drive that is plugged into your computer, the next step will erase that hard drive. Once checked click on ‘Write’.
 8. After the image is written to the SD card remount (Eject and re-insert) it to your computer.
-9. Open the mounded device named "boot"
+9. Open the mounded device named "boot".
 10. If you're using a pi Zero W, check if there is a file called "wpa_supplicant.conf" if not then make a file with that name and insert the following code (Replacing ssid and password with your wifi SSID and password):
     ```
     country=US
@@ -48,10 +48,27 @@ dtparam=audio=on
 dtoverlay=audremap,enable_jack,pins_18_19
 ```
 12. Open the file "config.txt" using any text editor and place the following after "rootwait": <br/>```modules-load=dwc2,g_ether```
-13. Create a file with the name "ssh" and without any file extension
-14. Save and Close any open files
+13. Create a file with the name "ssh" and without any file extension.
+14. Save and Close any open files.
 
 ## Software Setup
-1. Power on the pi by connecting it to the conputer's USB
-2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309)
-3. 
+1. Power on the pi by connecting it to the conputer's USB.
+2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS]``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309)
+3. Enter the password, ```type sudo raspi-config``` and change the default password.
+4. Update the Pi with ```sudo apt-get update```.
+5. Upgrade the Pi with ```sudo apt-get upgrade```.
+6. If you want to copy the videos via the USB method then type ```sudo apt-get install usbmount``` otherwise skip to step 9.
+7. We will now edit a file using the ```sudo nano /lib/systemd/system/systemd-udevd.service``` command. 
+8. Scroll down using the Down arrow key, and find the code "PrivateMounts=yes" and change that ***"yes"*** to a ***"no"***, then exit using **CTRL+X** and the pressing **Y**
+9. we will now remove the splash screen by first typing ```sudo nano /boot/cmdline.txt```
+10. Find "console=tty3" & change it to "console=tty1"
+11. find "fsck.repair=yes" and remove it
+12. Add ```consoleblank=0 logo.nologo quiet splash``` to the very end of the line.
+13. Next we will be installing omxplayer, but before that we need to install git using ```sudo apt-get install git```.
+14. Since Omxplayer cannton be installed with apt-get anymore, we will be using a legacy version. start by going into the main directory using ```cd ~```
+15. Download the archived omxplayer debian file with ```wget http://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_20190723+gitf543a0d-1_armhf.deb```
+16. Install the .deb file with ```sudo dpkg -i omxplayer_20190723+gitf543a0d-1_armhf.deb```
+17. Then install the dependancies ```sudo apt-get -f install```
+18. Lastly delete the omxplayer .deb file with ```rm omxplayer_20190723+gitf543a0d-1_armhf.deb```
+19. Test if omxplayer is properly installed with ```omxplayer```, to get out of omxplayer type **CTRL+C**
+20. 
