@@ -41,6 +41,6 @@ A simple way of doing this first installing [FFMPEG](https://github.com/adaptlea
         psk="NETWORK PASSWORD"
     }
     ```
-11. Open the file "config.txt" using any text editor other that notepad and place at the bottom: 'dtoverlay=dwc2'
-12. Open the file "config.txt" using any tet editor and place the following after rootwait": 'modules-load=dwc2,g_ether'
+11. Open the file "config.txt" using any text editor other that notepad and place at the bottom: ```dtoverlay=dwc2```
+12. Open the file "config.txt" using any tet editor and place the following after rootwait": ```modules-load=dwc2,g_ether```
 13. Creat a file with the name "ssh" and wiothout any file extention
