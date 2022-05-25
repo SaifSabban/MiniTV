@@ -31,11 +31,11 @@ A simple way of doing this first installing [FFMPEG](https://github.com/adaptlea
 8. After the image is written to the SD card remount (Eject and re-insert) it to your computer.
 9. Open the mounded device named "boot"
 10. Check if there is a file called "wpa_supplicant.conf" if not then make a file with that name and insert the following code (Replacing ssid and password with your wifi SSID and password):
->country=US
->ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
->update_config=1
->
->network={
->    ssid="NETWORK NAME"
->    psk="NETWORK PASSWORD"
->}
+    country=US
+    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+    update_config=1
+
+    network={
+        ssid="NETWORK NAME"
+        psk="NETWORK PASSWORD"
+    }
