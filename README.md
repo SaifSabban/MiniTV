@@ -174,6 +174,8 @@ WantedBy=multi-user.target
     3) Audio Circuit = 5V, GND & pin 19
 <br/><p align="center"><img src="BaseCircuit.png" alt="drawing" width="500"/><p>
 
+# This would be a good time to test your circuit!
+
 ### Power Circuit
 
 ### Battery Circuit
