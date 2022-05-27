@@ -51,6 +51,7 @@ A simple way of doing this first installing [FFMPEG](https://github.com/adaptlea
 dtoverlay=dwc2
 dtparam=audio=on
 dtoverlay=audremap,enable_jack,pins_18_19
+disable_splash=1
 ```
 12. Open the file "config.txt" using any text editor and place the following after "rootwait": <br/>```modules-load=dwc2,g_ether```.
 13. Create a file with the name "ssh" and without any file extension.
@@ -87,19 +88,39 @@ dtoverlay=audremap,enable_jack,pins_18_19
 ### Clone Repository
 20. To the github repository to the Pi use ```git clone https://github.com/SaifSabban/MiniTV```.
 
+### Add a Splash Screen
+21. Install the Linux framebuffer imageviewer with ```sudo apt install fbi```.
+22. Create our splash screen command file using ```sudo nano /lib/systemd/system/splashscreen.service```.
+23. Copy and paste the following into the editor, changing the splashscreen to the one you want to use:
+```
+[Unit]
+Description=Splash screen
+DefaultDependencies=no
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/bin/fbi -d /dev/fb0 --noverbose -a /home/pi/MiniTv/Extra/SplashScreens/NTSCTestCard.png
+StandardInput=tty
+StandardOutput=tty
+
+[Install]
+WantedBy=sysinit.target
+```
+24. Update your Pi with ```sudo apt-get update``` then enable the splash screen with ```sudo systemctl enable splashscreen```
+
 ### Moving Videos (USB Method)
-21. go to the videos directory ```cd ~/MiniTv/videos```.
-22. Plug in the USB and type on the command line ```sudo cp -R /media/usb/encoded/. ~/MiniTv/videos```.
+25. go to the videos directory ```cd ~/MiniTv/videos```.
+26. Plug in the USB and type on the command line ```sudo cp -R /media/usb/encoded/. ~/MiniTv/videos```.
 
 ### Moving Videos (SSH Method)
-23. Move the video files to a folder called "videos".
-24. On you computer's command terminal type in ```scp -r C:/Users/[DIRECTORY]}/videos pi@raspberrypi.local:/home/pi/MiniTv```<br/> replacing **[DIRECTORY]** with your actual directory.
-25. You will be asked to if you want to save the device's hash, type "YES".
-26. Enter your Pi's password. and wait for the transfer to finish.
+27. Move the video files to a folder called "videos".
+28. On you computer's command terminal type in ```scp -r C:/Users/[DIRECTORY]}/videos pi@raspberrypi.local:/home/pi/MiniTv```<br/> replacing **[DIRECTORY]** with your actual directory.
+29. You will be asked to if you want to save the device's hash, type "YES".
+30. Enter your Pi's password. and wait for the transfer to finish.
 
 ### Setting Startup Sequinnce
-27. Create and edit the start up file for the buttons program by first typing<br/>```sudo touch /etc/systemd/system/tvbutton.service```<br/>then<br/>```sudo nano /etc/systemd/system/tvbutton.service```.
-28. Copy and paste the following into the editor:
+31. Create and edit the start up file for the buttons program by first typing<br/>```sudo touch /etc/systemd/system/tvbutton.service```<br/>then<br/>```sudo nano /etc/systemd/system/tvbutton.service```.
+32. Copy and paste the following into the editor:
 ```
 [Unit]
 Description=tvbutton
@@ -113,8 +134,8 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
-29. Create and edit the start up file for the buttons program by first typing<br/>```sudo touch /etc/systemd/system/tvplayer.service```<br/>then<br/>```sudo nano /etc/systemd/system/tvplayer.service```.
-30. Copy and paste the following into the editor:
+33. Create and edit the start up file for the buttons program by first typing<br/>```sudo touch /etc/systemd/system/tvplayer.service```<br/>then<br/>```sudo nano /etc/systemd/system/tvplayer.service```.
+34. Copy and paste the following into the editor:
 ```
 [Unit]
 Description=tvplayer
@@ -128,8 +149,8 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
-31. Finally, type in ```sudo systemctl enable tvbutton.service``` then ```sudo systemctl enable tvplayer.service``` to have the two begin at start up.
-32. Shutdown the Pi with ```sudo shutdown -h now``` and build the rest of the TV. 
+35. Finally, type in ```sudo systemctl enable tvbutton.service``` then ```sudo systemctl enable tvplayer.service``` to have the two begin at start up.
+36. Shutdown the Pi with ```sudo shutdown -h now``` and build the rest of the TV. 
 
 ## TV Physical Build
 ### Screen Circuit
