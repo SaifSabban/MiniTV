@@ -16,7 +16,7 @@ alt="IMAGE ALT TEXT HERE" width="960" border="1" /></a>
 * [1K Trim Potentiometer](https://www.amazon.co.uk/HELLOYEE-Breadboard-Trim-Potentiometer-Arduino/dp/B0777J1618)
 * [Micro Push Button Switch](https://www.amazon.co.uk/gp/product/B00R1LI06W)
 * Composite Screen [Use sudo mod wiki to figure which one you want to get and how to mod them to use 5V](https://www.sudomod.com/wiki/index.php/GBZ_Screen)
-* [Toggle Switch](https://www.amazon.co.uk/dp/B07RR7J2K6)
+* (Optional)[Toggle Switch](https://www.amazon.co.uk/dp/B07RR7J2K6)
 * (Optional)[Powerboost 500 Basic](https://www.adafruit.com/product/1903)
 * (Optional)[LiPo Battery 2200mAh](https://www.adafruit.com/product/1781)
 * (Optional)[3D Printed Parts](/3Dfiles/)
@@ -154,8 +154,8 @@ WantedBy=multi-user.target
 
 ## TV Physical Build
 ### Screen Circuit
-1. These Composite usually have 4 pins which correspond to Power, GND, AV1 & AV2
-2. These screens are expective 12V power. Some screens work with both 12V and 5V, but if they don't then follow the guide from this wiki to [convert your screen](https://www.sudomod.com/wiki/index.php/GBZ_Screen)
+1. These composite screens usually have 4 pins which correspond to Power, GND, AV1 & AV2
+2. These screens are expecting 12V power. Some screens work with both 12V and 5V, but if they don't then follow the guide from this wiki to [convert your screen](https://www.sudomod.com/wiki/index.php/GBZ_Screen)
 3. Remove the current wires and connect wires to Power, GND, & AV1 (Preferably with the colours red, black & white, respectively).
 
 ### Screen Button Circuit
@@ -167,7 +167,7 @@ WantedBy=multi-user.target
 7. Solder a wire to the center of the potentiometer, and another to the right side. <br/><p align="center"><img src="Extra/Pot.jpg" alt="drawing" width="500"/><p>
 8. Connect on wire from the potentiometer to the speaker, the other to the amplifier, and solder a wire from the remaining pin from the speaker to the amp.<br/><p align="center"><img src="Extra/FinalAmp.jpg" alt="drawing" width="500"/><p>
 
-## Connecting Circuit to Pi
+### Connecting Circuit to Pi
 9. Solder the circuits to the appropriate pins:
     1) Screen PCB = 5V, GND, Pin TV
     2) Screen Button = Gnd & pin 26
@@ -175,7 +175,10 @@ WantedBy=multi-user.target
 <br/><p align="center"><img src="Extra/BaseCircuit.png" alt="drawing" width="500"/><p>
 
 # This would be a good time to test your circuit!
-
 ### Power Circuit
+10. If you want to opt not to have your TV battery powered, then Solder the appropriate wires from the USB cable to the Micro USB dip board, and skip to assembly. Other wise go the next step.<br/><p align="center"><img src="Extra/MakeImage.jpg" alt="drawing" width="500"/><p>
+11. Solder the Data wire of your USB cables to the Micro USB dip board.<br/><p align="center"><img src="Extra/MakeImage.jpg" alt="drawing" width="500"/><p>
 
 ### Battery Circuit
+
+## Assembly
