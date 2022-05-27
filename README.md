@@ -159,7 +159,7 @@ WantedBy=multi-user.target
 3. Remove the current wires and connect wires to Power, GND, & AV1 (Preferably with the colours red, black & white, respectively).
 
 ### Screen Button Circuit
-4. Solder a wire to the middle right pin of the button, and another to the bottom right pin. Orientation of the button doesn't matter.<br/><p align="center"><img src="Extra/ButtonPins.png" alt="drawing"/><p>
+4. Solder a wire to the middle right pin of the button, and another to the bottom right pin. Orientation of the button doesn't matter.<br/><p align="center"><img src="Extra/ButtonPins.png" alt="drawing" width="250"/><p>
 
 ### Audio Circuit
 5. Solder a Wire to pin A+ on the mono amplifier, and another 2 to ground and V+.<br/><p align="center"><img src="Extra/AmpPins.jpg" alt="drawing" width="500"/><p>
