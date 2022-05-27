@@ -162,17 +162,17 @@ WantedBy=multi-user.target
 4. Solder a wire to the middle right pin of the button, and another to the bottom right pin. Orientation of the button doesn't matter.<br/><p align="center"><img src="Extra/ButtonPins.png" alt="drawing"/><p>
 
 ### Audio Circuit
-5. Solder a Wire to pin A+ on the mono amplifier, and another 2 to ground and V+.<br/><p align="center"><img src="AmpPins.jpg" alt="drawing" width="500"/><p>
-6. Connect A- to Ground.<br/><p align="center"><img src="FixNeg.jpg" alt="drawing" width="500"/><p>
-7. Solder a wire to the center of the potentiometer, and another to the right side. <br/><p align="center"><img src="Pot.jpg" alt="drawing" width="500"/><p>
-8. Connect on wire from the potentiometer to the speaker, the other to the amplifier, and solder a wire from the remaining pin from the speaker to the amp.<br/><p align="center"><img src="FinalAmp.jpg" alt="drawing" width="500"/><p>
+5. Solder a Wire to pin A+ on the mono amplifier, and another 2 to ground and V+.<br/><p align="center"><img src="Extra/AmpPins.jpg" alt="drawing" width="500"/><p>
+6. Connect A- to Ground.<br/><p align="center"><img src="Extra/FixNeg.jpg" alt="drawing" width="500"/><p>
+7. Solder a wire to the center of the potentiometer, and another to the right side. <br/><p align="center"><img src="Extra/Pot.jpg" alt="drawing" width="500"/><p>
+8. Connect on wire from the potentiometer to the speaker, the other to the amplifier, and solder a wire from the remaining pin from the speaker to the amp.<br/><p align="center"><img src="Extra/FinalAmp.jpg" alt="drawing" width="500"/><p>
 
 ## Connecting Circuit to Pi
 9. Solder the circuits to the appropriate pins:
     1) Screen PCB = 5V, GND, Pin TV
     2) Screen Button = Gnd & pin 26
     3) Audio Circuit = 5V, GND & pin 19
-<br/><p align="center"><img src="BaseCircuit.png" alt="drawing" width="500"/><p>
+<br/><p align="center"><img src="Extra/BaseCircuit.png" alt="drawing" width="500"/><p>
 
 # This would be a good time to test your circuit!
 
