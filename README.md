@@ -59,8 +59,8 @@ disable_splash=1
 
 ## TV Software Build
 ### Software Setup
-1. Power on the pi by connecting it to the conputer's USB.
-2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that dosen't work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS]``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309).
+1. Power on the pi by connecting it to the computer’s USB.
+2. Launch putty, Command line or terminal and type: ```ssh pi@raspberrypi.local``` <br/>If that doesn’t work you'll have to figure out the Pi's IP and use ```ssh pi@[IP ADDRESS]``` or watch this video to try and [trouble shoot](https://youtu.be/aL1pWI2K60w?t=309).
 3. Enter the password, ```type sudo raspi-config``` and change the default password.
 4. Update the Pi with ```sudo apt-get update```.
 5. Upgrade the Pi with ```sudo apt-get upgrade```.
@@ -78,20 +78,20 @@ disable_splash=1
 
 ### Omxplayer
 13. Next we will be installing omxplayer, but before that we need to install git using ```sudo apt-get install git```.
-14. Since Omxplayer cannton be installed with apt-get anymore, we will be using a legacy version. start by going into the main directory using ```cd ~```.
-15. Download the archived omxplayer debian file with ```wget http://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_20190723+gitf543a0d-1_armhf.deb```.
+14. Since Omxplayer cannot be installed with apt-get anymore, we will be using a legacy version. start by going into the main directory using ```cd ~```.
+15. Download the archived omxplayer Debian file with ```wget http://archive.raspberrypi.org/debian/pool/main/o/omxplayer/omxplayer_20190723+gitf543a0d-1_armhf.deb```.
 16. Install the .deb file with ```sudo dpkg -i omxplayer_20190723+gitf543a0d-1_armhf.deb```.
-17. Then install the dependancies ```sudo apt-get -f install```.
+17. Then install the dependencies ```sudo apt-get -f install```.
 18. Lastly delete the omxplayer .deb file with ```rm omxplayer_20190723+gitf543a0d-1_armhf.deb```.
 19. Test if omxplayer is properly installed with ```omxplayer```, to get out of omxplayer type **CTRL+C**.
 
 ### Clone Repository
-20. To the github repository to the Pi use ```git clone https://github.com/SaifSabban/MiniTV```.
+20. To the GitHub repository to the Pi use ```git clone https://github.com/SaifSabban/MiniTV```.
 
 ### Add a Splash Screen
-21. Install the Linux framebuffer imageviewer with ```sudo apt install fbi```.
+21. Install the Linux framebuffer image viewer with ```sudo apt install fbi```.
 22. Create our splash screen command file using ```sudo nano /lib/systemd/system/splashscreen.service```.
-23. Copy and paste the following into the editor, changing the splashscreen to the one you want to use:
+23. Copy and paste the following into the editor, changing the splash screen to the one you want to use:
 ```
 [Unit]
 Description=Splash screen
@@ -118,7 +118,7 @@ WantedBy=sysinit.target
 29. You will be asked to if you want to save the device's hash, type "YES".
 30. Enter your Pi's password. and wait for the transfer to finish.
 
-### Setting Startup Sequinnce
+### Setting Start-up Sequence
 31. Create and edit the start up file for the buttons program by first typing<br/>```sudo touch /etc/systemd/system/tvbutton.service```<br/>then<br/>```sudo nano /etc/systemd/system/tvbutton.service```.
 32. Copy and paste the following into the editor:
 ```
@@ -154,7 +154,26 @@ WantedBy=multi-user.target
 
 ## TV Physical Build
 ### Screen Circuit
+1. These Composite usually have 4 pins which correspond to Power, GND, AV1 & AV2
+2. These screens are expective 12V power. Some screens work with both 12V and 5V, but if they don't then follow the guide from this wiki to [convert your screen](https://www.sudomod.com/wiki/index.php/GBZ_Screen)
+3. Remove the current wires and connect wires to Power, GND, & AV1 (Preferably with the colours red, black & white, respectively).
+
 ### Screen Button Circuit
+4. Solder a wire to the middle right pin of the button, and another to the bottom right pin. Orientation of the button doesn't matter.<br/><p align="center"><img src="Extra/ButtonPins.png" alt="drawing"/><p>
+
 ### Audio Circuit
+5. Solder a Wire to pin A+ on the mono amplifier, and another 2 to ground and V+.<br/><p align="center"><img src="AmpPins.jpg" alt="drawing" width="500"/><p>
+6. Connect A- to Ground.<br/><p align="center"><img src="FixNeg.jpg" alt="drawing" width="500"/><p>
+7. Solder a wire to the center of the potentiometer, and another to the right side. <br/><p align="center"><img src="Pot.jpg" alt="drawing" width="500"/><p>
+8. Connect on wire from the potentiometer to the speaker, the other to the amplifier, and solder a wire from the remaining pin from the speaker to the amp.<br/><p align="center"><img src="FinalAmp.jpg" alt="drawing" width="500"/><p>
+
+## Connecting Circuit to Pi
+9. Solder the circuits to the appropriate pins:
+    1) Screen PCB = 5V, GND, Pin TV
+    2) Screen Button = Gnd & pin 26
+    3) Audio Circuit = 5V, GND & pin 19
+<br/><p align="center"><img src="BaseCircuit.png" alt="drawing" width="500"/><p>
+
 ### Power Circuit
+
 ### Battery Circuit
