@@ -17,7 +17,7 @@ alt="IMAGE ALT TEXT HERE" width="960" border="1" /></a>
 * [Micro Push Button Switch](https://www.amazon.co.uk/gp/product/B00R1LI06W)
 * Composite Screen [Use sudo mod wiki to figure which one you want to get and how to mod them to use 5V](https://www.sudomod.com/wiki/index.php/GBZ_Screen)
 * (Optional)[Toggle Switch](https://www.amazon.co.uk/dp/B07RR7J2K6)
-* (Optional)[Powerboost 500 Basic](https://www.adafruit.com/product/1903)
+* (Optional)[Powerboost 500C](https://www.adafruit.com/product/1944)
 * (Optional)[LiPo Battery 2200mAh](https://www.adafruit.com/product/1781)
 * (Optional)[3D Printed Parts](/3Dfiles/)
 
