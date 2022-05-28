@@ -174,9 +174,15 @@ WantedBy=multi-user.target
 
 # This would be a good time to test your circuit!
 ### Power Circuit
-10. If you want to opt not to have your TV battery powered, then Solder the appropriate wires from the USB cable to the Micro USB dip board, and skip to assembly. Other wise go the next step.<br/><p align="center"><img src="Extra/MakeImage.jpg" alt="drawing" width="500"/><p>
-11. Solder the Data wire of your USB cables to the Micro USB dip board.<br/><p align="center"><img src="Extra/MakeImage.jpg" alt="drawing" width="500"/><p>
+10. If you want to opt not to have your TV battery powered, then Solder the appropriate wires from the USB cable to the Micro USB dip board, and skip to assembly. Other wise go the next step.<br/><p align="center"><img src="Extra/BasicWiring.jpg" alt="drawing" width="500"/><p>
 
 ### Battery Circuit
+11. If you've decided to have a battery in the system, then perfom the following:
+    *Solder the Data wire of your USB cables to the Micro USB dip board.
+    *The GND wire from the Micro USB cable to any GND pin on the powerboost, and the 5V wire to the 5V pin.
+    *Solder one pin from the toggle switch to the EN pin of the power boost, and the other switch poin to any GND pin.
+    *Solder the GND pin from the Micro USB dip board to any GND pin on the powerboost, and the 5V pin on the USB board to the USB pin on the powerboost.
+    *Plug the Battery to the JST connector, making sure the pins are in the correct order.
+<br/><p align="center"><img src="Extra/BatteryWiring.jpg" alt="drawing" width="500"/><p>
 
 ## Assembly
