@@ -186,3 +186,4 @@ WantedBy=multi-user.target
 <br/><p align="center"><img src="Extra/BatteryWiring.png" alt="drawing" width="500"/><p>
 
 ## Assembly
+This section is still under development, for now you can follow the rest of the guide from [Brandon Withrow's guide](https://withrow.io/simpsons-tv-build-guide).
