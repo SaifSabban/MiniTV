@@ -70,7 +70,7 @@ disable_splash=1
 6. Upgrade the Pi with ```sudo apt-get upgrade```.
 
 ### USB Mount 
-7. If you want to copy the videos via the USB method then type ```sudo apt-get install usbmount``` otherwise skip to step 9.
+7. If you want to copy the videos via the USB method then type ```sudo apt-get install usbmount``` otherwise skip to step 10.
 8. We will now edit a file using the ```sudo nano /lib/systemd/system/systemd-udevd.service``` command.
 9. Scroll down using the Down arrow key, and find the code "PrivateMounts=yes" and change that ***"yes"*** to a ***"no"***, then exit using **CTRL+X** and the pressing **Y**.
 
