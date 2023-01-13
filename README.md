@@ -48,10 +48,10 @@ A simple way of doing this first installing [FFMPEG](https://github.com/adaptlea
     ```
 11. Open the file "config.txt" using any text editor other that notepad and place at the bottom: 
 ```
-dtoverlay=dwc2 #Set as Upstream Driver
-dtparam=audio=on #Turns on Audio
-dtoverlay=audremap,enable_jack,pins_18_19 #Enables Audio on pins 18 & 19
-disable_splash=1 #Removes Rainbow Splash 
+dtoverlay=dwc2
+dtparam=audio=on
+dtoverlay=audremap,enable_jack,pins_18_19
+disable_splash=1
 ```
 12. Open the file "cmdline.txt" using any text editor and place the following after "rootwait": <br/>```modules-load=dwc2,g_ether```. This allows USB ethernet.
 13. Find "console=tty3" & change it to "console=tty1". This sends the Login prompt to another nonexistant screen.
